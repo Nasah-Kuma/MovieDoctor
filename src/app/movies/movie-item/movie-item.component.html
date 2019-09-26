@@ -1,1 +1,16 @@
-<p>movie-item works!</p>
+<div class = "card" *ngFor = "let movie of movies; let index = index">
+    <div class = "card-header">
+        <div class = "card-title">
+            <h3>{{movie.original_title}}</h3>
+        </div>
+    </div>
+
+    <div class = "card-body">
+        <img src = "https://api.themoviedb.org/3 + movie.poster_path">
+    </div>
+
+    <div class = "card-footer">
+        <p>{{movie.overview}}</p>
+    </div>
+
+</div>

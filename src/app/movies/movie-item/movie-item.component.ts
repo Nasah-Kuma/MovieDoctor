@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MovieService} from '../../movie.service';
+import { Movie} from '../movie.model';
 
 @Component({
   selector: 'app-movie-item',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieItemComponent implements OnInit {
 
-  constructor() { }
+   movies :any[];
 
-  ngOnInit() {
+  constructor(private movieService: MovieService) {
+    
   }
 
+  
+  ngOnInit() {
+     this.movieService.getPopularMovies()
+      .subscribe(data => {  
+        this.movies = data.results;
+      console.log(this.movies);
+      
+    }
+      )
+      
+  }
 }
