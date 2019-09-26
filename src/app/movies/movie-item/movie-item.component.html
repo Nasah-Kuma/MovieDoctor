@@ -1,16 +1,9 @@
-<div class = "card" *ngFor = "let movie of movies; let index = index">
-    <div class = "card-header">
-        <div class = "card-title">
-            <h3>{{movie.original_title}}</h3>
+<div class = "container bg-secondary">
+    <div class = "row">
+        <div class = "col-sm-3"  *ngFor = "let movie of movies | slice:0:12 ; let index = index">
+            <h3 class = "title">{{movie.original_title}}</h3>
+            <img class = "posterStyle" [src] = "baseImageURL + movie.poster_path">
+            <button class = "btn btn-primary">view details</button>
         </div>
     </div>
-
-    <div class = "card-body">
-        <img src = "https://api.themoviedb.org/3 + movie.poster_path">
-    </div>
-
-    <div class = "card-footer">
-        <p>{{movie.overview}}</p>
-    </div>
-
 </div>

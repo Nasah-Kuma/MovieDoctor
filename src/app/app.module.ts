@@ -7,13 +7,16 @@ import { AppComponent } from './app.component';
 import { MovieItemComponent } from './movies/movie-item/movie-item.component';
 import {MovieService} from './movie.service';
 import { TitleComponent } from './title/title.component';
-import { SearchComponent } from './search/search.component'
+import { SearchComponent } from './search/search.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     MovieItemComponent,
     TitleComponent,
-    SearchComponent
+    SearchComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

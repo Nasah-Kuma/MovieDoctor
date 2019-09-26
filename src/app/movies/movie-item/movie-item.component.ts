@@ -10,6 +10,7 @@ import { Movie} from '../movie.model';
 export class MovieItemComponent implements OnInit {
 
    movies :any[];
+   baseImageURL: string = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 
   constructor(private movieService: MovieService) {
     

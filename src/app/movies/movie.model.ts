@@ -7,6 +7,7 @@ export interface Movie{
     results: [{
         id?: number,
         overview?: string,
+        backdrop_path?: string,
         poster_path?: string ,
         releaseDate?: Date,
         original_title?: string,
