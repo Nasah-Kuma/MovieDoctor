@@ -20,8 +20,8 @@ export class MovieItemComponent implements OnInit {
   ngOnInit() {
      this.movieService.getPopularMovies()
       .subscribe(data => {  
-        this.movies = data.results;
-      console.log(this.movies);
+        this.movies = data;
+      console.log(data);
       
     }
       )

@@ -10,18 +10,26 @@ import { TitleComponent } from './title/title.component';
 import { SearchComponent } from './search/search.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './footer/footer.component';
+import { MovieDetailsComponent } from './movies/movie-details/movie-details.component';
+import { MainLayoutComponent } from './movies/main-layout/main-layout.component';
+import { FormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
     MovieItemComponent,
     TitleComponent,
     SearchComponent,
-    FooterComponent
+    FooterComponent,
+    MovieDetailsComponent,
+    MainLayoutComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]

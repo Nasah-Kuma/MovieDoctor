@@ -15,17 +15,23 @@ export class MovieService {
   constructor(private http: HttpClient) { }
    
   //finds a particular movie
-  getMovies() : Observable<any[]>{
-    return this.http.get<any[]>(this.baseAPIURL + '/find/' + '?' + 'api_key=' + this.apiKey);
+  /* movieSearch() : Observable<any[]>
+  {
+    return this.http.get<any[]>(this.baseAPIURL + '/find/' + '{external_id}?' + 'api_key=' + this.apiKey + 
+    '&language=en-US&external_source=imdb_id');
     
-  }
+  }*/
   getMovieDetails(){
 
   }
   //get popular movies from the server
   getPopularMovies()
   {
-    return this.http.get<Movie>(this.baseAPIURL +'/movie/popular?' + 'api_key=' + this.apiKey + '&language=en-US&page=1');
+    return this.http.get<any[]>(this.baseAPIURL +'/movie/popular?' + 'api_key=' + this.apiKey +
+    '&language=en-US&page=1');
     
   }
+
+  //search for a given movie
+  
 }
