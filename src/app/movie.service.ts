@@ -25,13 +25,19 @@ export class MovieService {
 
   }
   //get popular movies from the server
-  getPopularMovies()
+  getPopularMovies():Observable<Movie[]>
   {
-    return this.http.get<any[]>(this.baseAPIURL +'/movie/popular?' + 'api_key=' + this.apiKey +
+    return this.http.get<Movie[]>(this.baseAPIURL +'/movie/popular?' + 'api_key=' + this.apiKey +
     '&language=en-US&page=1');
     
   }
 
   //search for a given movie
+  searchMovie(searchQuery){
+    console.log(searchQuery.searchString);
+
+    return this.http.get<any[]>(this.baseAPIURL+'/search/movie?api_key=' + this.apiKey +'&language=en-US&query=' 
+    +searchQuery.searchString+'&page=1&include_adult=false');
+  }
   
 }

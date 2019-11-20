@@ -1,9 +1,11 @@
 <div class = "jumbotron bg-secondary searchArea">
     <h3 class = "text-danger">Find Exciting Movies</h3>
     <h5 class = "text-danger">Enter search details</h5>
-    <form method = "POST">
-        <input type = "text" class = "searchInput" [(ngModel)] = "searchQuery" name="search"
+    <form [formGroup] = "searchForm" (ngSubmit) = "onSearch(searchForm.value)">
+        <input type = "text" class = "searchInput" name="search" formControlName = "searchString"
         placeholder="enter a movie title">
-        <button class = "btn btn-primary" (click)="searchMovie()">Find</button>
+        <button class = "btn btn-primary">Find</button>
     </form>
 </div>
+<!-- <app-movie-item [searchParentData] = "searchResponse">
+ </app-movie-item> -->
