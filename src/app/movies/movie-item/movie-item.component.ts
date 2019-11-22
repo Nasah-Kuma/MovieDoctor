@@ -12,38 +12,29 @@ import { EventEmitter } from 'events';
 export class MovieItemComponent extends EventEmitter implements OnInit {
 
   movies: Movie[];
-  myEvent: any;
-  receivedSearchResults = [];
+  searchQuery: any;
   baseImageURL: string = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
-  // @Input() public searchParentData;
-  // movies :Movie[] = this.searchParentData;
 
   constructor(private movieService: MovieService) {
     super();
   }
-
-
 
   ngOnInit() {
     this.movieService.getPopularMovies()
       .subscribe(data => {
         this.movies = data;
         console.log(data);
-        // console.log(this.searchParentData);
-
       }
       )
+}
 
+//handles emitted search response from child-component/search-component
+  Search(emittedSearchResponse) {
+    
+    //Replace the Movies array contents with the data received from the event 
+    this.movies = emittedSearchResponse.apiResponse;
+    this.searchQuery = emittedSearchResponse.searchQuery;
   }
-
-
-  // emitted search response
-  Search(data) {
-
-    //Replace the Movies array contents withe the data received from the event 
-    this.movies = data;
-  }
-
 
 }
 

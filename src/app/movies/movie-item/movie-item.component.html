@@ -6,9 +6,12 @@
     -->
 <app-search (myEvent)="Search($event)"></app-search>
 
-<div class = "container bg-secondary">
+<div *ngIf = "searchQuery != null">
+    <h4>Displaying Search Results for {{searchQuery}}</h4>
+</div>
+<div class = "container movie-display">
     <div class = "row">
-        <div class = "col-sm-3"  *ngFor = "let movie of movies.results">
+        <div class = "col-sm-4"  *ngFor = "let movie of movies.results">
             <h3 class = "title">{{movie.original_title}}</h3>
             <img class = "posterStyle" [src] = "baseImageURL + movie.poster_path">
             <a class = "btn btn-primary" [routerLink] = "['/movieDetails']">view details</a>
@@ -17,16 +20,4 @@
 </div>
 
 
-
-<!-- displays search results -->
-<!-- <div class = "container bg-danger" *ngIf = Search($event)>
-    <h4>Diplaying search results</h4>
-    <div class = "row">
-        <div class = "col-sm-3"  *ngFor = "let search of receivedSearchResults.results">
-            <h3 class = "title">{{search.original_title}}</h3>
-            <img class = "posterStyle" [src] = "baseImageURL + search.poster_path">
-            <a class = "btn btn-primary">view details</a>
-        </div>
-    </div>
-</div> -->
 </body>
