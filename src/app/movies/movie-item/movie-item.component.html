@@ -11,7 +11,7 @@
 </div>
 <div class = "container movie-display">
     <div class = "row">
-        <div class = "col-sm-4"  *ngFor = "let movie of movies.results">
+        <div class = "col-sm-4"  *ngFor = "let movie of movies">
             <h3 class = "title">{{movie.original_title}}</h3>
             <img class = "posterStyle" [src] = "baseImageURL + movie.poster_path">
             <a class = "btn btn-primary" [routerLink] = "['/movieDetails']">view details</a>

@@ -14,6 +14,7 @@ export class MovieItemComponent extends EventEmitter implements OnInit {
   movies: Movie[];
   searchQuery: any;
   baseImageURL: string = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
+  searchStatus = false;
 
   constructor(private movieService: MovieService) {
     super();
@@ -30,6 +31,7 @@ export class MovieItemComponent extends EventEmitter implements OnInit {
 
 //handles emitted search response from child-component/search-component
   Search(emittedSearchResponse) {
+    this.searchStatus = true;
     
     //Replace the Movies array contents with the data received from the event 
     this.movies = emittedSearchResponse.apiResponse;
